@@ -1,0 +1,3184 @@
+
+/* ==========================================
+   CONFIGURAÇÕES GERAIS
+========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #E8E4DC;
+    background-image: url("../imagens/fundo-portfolio-paisagem.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    color: #252525;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+section {
+    scroll-margin-top: 0;
+}
+
+
+/* ==========================================
+   CABEÇALHO
+========================================== */
+
+header {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background: #343434;
+    border-bottom: 1px solid rgba(212, 209, 203, 0.20);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    opacity: 0.12;
+    pointer-events: none;
+
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+header::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 8%;
+    width: 84%;
+    height: 1px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #8295A5,
+        #D4D1CB,
+        #8295A5,
+        transparent
+    );
+
+    opacity: 0.20;
+}
+
+header.navbar {
+    padding: 25px 8%;
+}
+
+header.navbar .container-fluid {
+    align-items: center;
+}
+
+.assinatura {
+    display: block;
+    width: 175px;
+    height: auto;
+    transform: scale(1.7);
+    transform-origin: left center;
+    filter: brightness(0) invert(0.82);
+}
+
+header.navbar .navbar-collapse {
+    justify-content: flex-end;
+}
+
+header.navbar .navbar-nav {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    margin-left: auto;
+    margin-right: -60px;
+}
+
+header.navbar .navbar-nav .nav-item {
+    position: relative;
+}
+
+header.navbar .navbar-nav .nav-link {
+    position: relative;
+    color: #D4DCE3;
+    padding: 8px 4px;
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 0.7px;
+
+    transition: color 0.3s ease;
+}
+
+header.navbar .navbar-nav .nav-link:hover {
+    color: #FFFFFF;
+}
+
+header.navbar .navbar-nav .nav-item:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -12px;
+    width: 1px;
+    height: 18px;
+    background-color: #FFFFFF;
+    opacity: 0.65;
+    transform: translateY(-50%);
+}
+
+header.navbar .navbar-nav .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 3px;
+    width: 0;
+    height: 1px;
+    background-color: #C8BDA9;
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+}
+
+header.navbar .navbar-nav .nav-link:hover::after {
+    width: 75%;
+}
+
+header.navbar .navbar-toggler {
+    border: 1px solid #AAB8C5;
+    border-radius: 6px;
+    padding: 7px 10px;
+}
+
+header.navbar .navbar-toggler:focus {
+    box-shadow: 0 0 0 0.15rem rgba(212, 220, 227, 0.35);
+}
+
+
+/* ==========================================
+   PLAYER DE MÚSICA PRINCIPAL
+   NÃO ALTERAR
+========================================== */
+
+.player-musica {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 7px 12px;
+    background: #101010;
+    border: 1px solid rgba(212, 209, 203, 0.25);
+    border-radius: 14px;
+    z-index: 5;
+}
+
+.player-conteudo {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.player-musica audio {
+    width: 165px;
+    height: 32px;
+    color-scheme: dark;
+}
+
+.info-musica {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+}
+
+.dados-musica {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}
+
+.nome-musica {
+    color: #F5F3EF;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.nome-artista {
+    color: #A69D8D;
+    font-size: 9px;
+}
+
+.disco-vinil {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            #B8A98E 0 4px,
+            #171717 5px 8px,
+            transparent 9px
+        ),
+        repeating-radial-gradient(
+            circle,
+            #333 0 1px,
+            #111 2px 3px
+        );
+
+    border: 2px solid #444;
+    position: relative;
+}
+
+.disco-vinil.girando {
+    animation: girarDisco 3s linear infinite;
+}
+
+@keyframes girarDisco {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* ==========================================
+   PÁGINA INICIAL
+========================================== */
+
+#inicio {
+    position: relative;
+    overflow: hidden;
+    min-height: 60vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    padding: 60px 20px 40px;
+}
+
+.ilustracao-esquerda {
+    position: absolute;
+    top: 75px;
+    left: 8%;
+    width: 310px;
+    opacity: 0.20;
+    z-index: 0;
+    transform: rotate(-7deg);
+    pointer-events: none;
+}
+
+.ilustracao-esquerda img {
+    display: block;
+    width: 100%;
+    height: auto;
+
+    filter:
+        grayscale(100%)
+        contrast(1.15)
+        drop-shadow(5px 8px 8px rgba(0, 0, 0, 0.20));
+}
+
+.ilustracoes-direita {
+    position: absolute;
+    top: 65px;
+    right: 8%;
+    width: 250px;
+    height: 390px;
+    display: block;
+    opacity: 0.20;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.ilustracoes-direita img:first-child {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 210px;
+    max-height: 190px;
+    object-fit: contain;
+    transform: rotate(8deg);
+
+    filter:
+        grayscale(100%)
+        contrast(1.15)
+        drop-shadow(4px 6px 7px rgba(0, 0, 0, 0.18));
+}
+
+.ilustracoes-direita img:last-child {
+    position: absolute;
+    top: 205px;
+    right: 45px;
+    width: 170px;
+    max-height: 160px;
+    object-fit: contain;
+    transform: rotate(-9deg);
+
+    filter:
+        grayscale(100%)
+        contrast(1.15)
+        drop-shadow(4px 6px 7px rgba(0, 0, 0, 0.18));
+}
+
+#inicio > span,
+#inicio > .frase-inicio,
+#inicio > p,
+#inicio > .carrossel-inicio,
+#inicio > .hero-buttons {
+    position: relative;
+    z-index: 1;
+}
+
+#inicio > span {
+    color: #DCCB96;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 20px;
+}
+
+.frase-inicio h1 {
+    font-family: 'Lora', serif;
+    font-size: 30px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    color: #F0DFAE;
+    text-align: center;
+    margin: 0 0 15px;
+}
+
+.frase-inicio h1 span {
+    color: #E8C66A;
+    text-shadow: 0 2px 12px rgba(232, 198, 106, 0.18);
+    transition: color 0.3s ease;
+}
+
+.linha-frase {
+    width: 100px;
+    height: 2px;
+    background-color: #E8C66A;
+    margin: 0 auto 12px;
+}
+
+#inicio .frase-inicio p {
+    font-family: 'Lora', serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: #DCCB96;
+    text-align: center;
+    margin: 0;
+    line-height: 1.5;
+}
+
+#inicio > p {
+    color: #F0DFAE;
+    font-size: 17px;
+    line-height: 1.7;
+    font-family: 'Lora', serif;
+    max-width: 550px;
+    margin-bottom: 30px;
+}
+
+
+/* ==========================================
+   BOTÕES DA PÁGINA INICIAL
+========================================== */
+
+.hero-buttons {
+    position: relative;
+    z-index: 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 18px;
+    width: 100%;
+}
+
+.hero-buttons a {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    display: inline-block;
+    padding: 14px 25px;
+
+    text-decoration: none;
+    text-align: center;
+    color: #D4D1CB;
+
+    border: 1px solid #333333;
+    border-radius: 8px;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: bold;
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.hero-buttons a:first-child {
+    background-color: #343434;
+}
+
+.hero-buttons a:last-child {
+    background-color: #181818;
+}
+
+.hero-buttons a::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    opacity: 0.25;
+
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.hero-buttons a:first-child:hover {
+    background-color: #454545;
+    color: #FFFFFF;
+    transform: translateY(-3px);
+}
+
+.hero-buttons a:last-child:hover {
+    background-color: #333333;
+    color: #FFFFFF;
+    transform: translateY(-3px);
+}
+
+
+/* ==========================================
+   CARROSSEL DA PÁGINA INICIAL
+========================================== */
+
+.carrossel-inicio {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 50px;
+    margin-bottom: 45px;
+}
+
+.carrossel-lista {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    width: 100%;
+}
+
+.desenho-carrossel + .desenho-carrossel {
+    margin-left: -25px;
+}
+
+.desenho-carrossel {
+    flex: 0 1 260px;
+    opacity: 1;
+    transform: scale(0.85);
+    transition: transform 0.4s, opacity 0.4s;
+    cursor: pointer;
+}
+
+.desenho-carrossel img {
+    display: block;
+    width: 100%;
+    height: 280px;
+    object-fit: contain;
+    object-position: center;
+    border-radius: 12px;
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.8));
+}
+
+.desenho-carrossel.destaque {
+    flex: 0 1 300px;
+    opacity: 1;
+    transform: scale(1.08);
+    z-index: 1;
+}
+
+.desenho-carrossel:not(.destaque):hover {
+    transform: scale(0.95);
+    opacity: 1;
+}
+
+.desenho-carrossel.destaque:hover {
+    transform: scale(1.15);
+}
+
+
+/* ==========================================
+   SEÇÃO SOBRE MIM
+========================================== */
+
+#sobre {
+    padding: 30px 8% 80px;
+}
+
+#sobre h2 {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 34px;
+    color: #F0DFAE;
+    text-align: left;
+    margin-bottom: 45px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.sobre-container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    background: linear-gradient(
+        135deg,
+        rgba(52, 52, 52, 0.82),
+        rgba(24, 24, 24, 0.78)
+    );
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(212, 209, 203, 0.25);
+    border-radius: 22px;
+    padding: 45px;
+
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+    transition:
+        box-shadow 0.3s ease,
+        transform 0.3s ease;
+}
+
+.sobre-container:hover {
+    box-shadow:
+        0 16px 40px rgba(0, 0, 0, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.12);
+
+    transform: translateY(-3px);
+}
+
+.sobre-apresentacao {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    width: 100%;
+}
+
+.sobre-imagem {
+    width: 350px;
+    height: 400px;
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(212, 209, 203, 0.4);
+    background-color: rgba(15, 15, 15, 0.35);
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.35),
+        0 0 0 4px rgba(255, 255, 255, 0.04);
+
+    transition:
+        box-shadow 0.4s ease,
+        transform 0.4s ease,
+        border-color 0.4s ease;
+}
+
+.sobre-imagem img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    border-radius: 10px;
+    transition: filter 0.4s ease;
+}
+
+.sobre-imagem:hover {
+    transform: translateY(-6px);
+    border-color: rgba(232, 198, 106, 0.75);
+
+    box-shadow:
+        0 16px 35px rgba(0, 0, 0, 0.45),
+        0 0 18px rgba(232, 198, 106, 0.14);
+}
+
+.sobre-imagem:hover img {
+    filter: brightness(1.06);
+}
+
+.sobre-texto {
+    flex: 1;
+    min-width: 0;
+    max-width: 750px;
+    padding: 10px 5px;
+}
+
+.sobre-texto h3 {
+    position: relative;
+    font-family: 'Lora', Georgia, serif;
+    font-size: 30px;
+    color: #F0DFAE;
+    margin-bottom: 28px;
+    padding-bottom: 18px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    line-height: 1.3;
+}
+
+.sobre-texto h3 span {
+    color: #D99A55;
+    font-weight: 700;
+}
+
+.sobre-texto h3::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 75px;
+    height: 2px;
+
+    background: linear-gradient(
+        90deg,
+        #BDB5A8,
+        rgba(189, 181, 168, 0.15)
+    );
+
+    border-radius: 5px;
+}
+
+.sobre-texto p {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 17px;
+    color: #F0DFAE;
+    line-height: 1.9;
+    margin-bottom: 24px;
+    text-align: left;
+    letter-spacing: 0.15px;
+    max-width: 680px;
+}
+
+.sobre-texto p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* ==========================================
+   INTERESSES PESSOAIS
+========================================== */
+
+.interesses-container {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 30px 0 0;
+
+    border-top: 1px solid rgba(217, 154, 85, 0.35);
+
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.interesses-container h3 {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: #F0DFAE;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.interesses-descricao {
+    color: #D4D1CB;
+    font-family: 'Lora', Georgia, serif;
+    font-size: 15px;
+    text-align: center;
+    line-height: 1.7;
+    margin: 0 auto 22px;
+    max-width: 650px;
+}
+
+/* BOTÕES DAS CATEGORIAS */
+
+.interesses-botoes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+.interesse-btn {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    min-width: 115px;
+    padding: 12px 22px;
+
+    color: #E8E4DC;
+    font-family: 'Lora', serif;
+    font-size: 14px;
+    font-weight: 600;
+
+    background: rgba(105, 105, 105, 0.75);
+    border: 1px solid rgba(220, 220, 220, 0.2);
+    border-radius: 8px;
+
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.interesse-btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    opacity: 0.15;
+
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.interesse-btn:hover {
+    background: rgba(130, 130, 130, 0.9);
+    color: #FFFFFF;
+    border-color: rgba(220, 220, 220, 0.4);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
+}
+
+.interesse-btn.ativo {
+    background: rgba(75, 75, 75, 0.95);
+    color: #FFFFFF;
+    border-color: rgba(220, 220, 220, 0.45);
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.18),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.interesse-btn.ativo:hover {
+    background: rgba(90, 90, 90, 0.98);
+}
+
+.interesse-btn:focus-visible {
+    outline: 2px solid #E8C66A;
+    outline-offset: 4px;
+}
+
+.interesses-conteudo {
+    width: 100%;
+}
+
+.interesse-painel {
+    width: 100%;
+    padding: 0;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    animation: aparecerInteresse 0.35s ease;
+}
+
+.interesse-painel[hidden] {
+    display: none !important;
+}
+
+.interesse-painel h4 {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 23px;
+    font-weight: 700;
+    color: #F0DFAE;
+    margin-bottom: 25px;
+    padding-bottom: 13px;
+    border-bottom: 1px solid rgba(212, 209, 203, 0.2);
+}
+
+.interesse-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 18px;
+    width: 100%;
+}
+
+.interesse-grid:empty::after {
+    content: "Em breve, meus favoritos estarão aqui.";
+    grid-column: 1 / -1;
+    color: #BDB7AC;
+    font-family: 'Lora', Georgia, serif;
+    font-size: 15px;
+    font-style: italic;
+    text-align: center;
+    padding: 35px 10px;
+}
+
+.interesse-card {
+    min-width: 0;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+
+    background: rgba(15, 15, 15, 0.65);
+    border: 1px solid rgba(212, 209, 203, 0.18);
+    border-radius: 12px;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.18);
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease,
+        background 0.35s ease;
+}
+
+.interesse-card:hover {
+    transform: translateY(-6px);
+    background: rgba(35, 33, 30, 0.95);
+    border-color: rgba(232, 198, 106, 0.45);
+
+    box-shadow:
+        0 12px 25px rgba(0, 0, 0, 0.3),
+        0 0 12px rgba(232, 198, 106, 0.08);
+}
+
+.interesse-card img {
+    display: block;
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    object-position: center;
+
+    transition:
+        transform 0.45s ease,
+        filter 0.45s ease;
+}
+
+.interesse-card:hover img {
+    transform: scale(1.04);
+    filter: brightness(1.08);
+}
+
+.interesse-card h5 {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: #F0DFAE;
+    text-align: center;
+    padding: 14px 10px 5px;
+    margin: 0;
+}
+
+.interesse-card p {
+    color: #BDB7AC;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    line-height: 1.5;
+    text-align: center;
+    padding: 0 10px 15px;
+    margin: 0;
+}
+
+@keyframes aparecerInteresse {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ==========================================
+   CARDS DE GAMES
+========================================== */
+
+#games-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 16px;
+    width: 100%;
+    align-items: start;
+}
+
+#games-grid .interesse-card {
+    min-width: 0;
+    padding: 8px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(217, 154, 85, 0.2);
+    border-radius: 10px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+#games-grid .interesse-card:hover {
+    transform: translateY(-5px);
+    border-color: #D99A55;
+}
+
+#games-grid .interesse-card img {
+    display: block;
+    width: 100%;
+    max-width: 150px;
+    aspect-ratio: 2 / 3;
+    height: auto;
+    object-fit: cover;
+    margin: 0 auto;
+    border-radius: 7px;
+}
+
+#games-grid .interesse-card h5 {
+    margin-top: 10px;
+    color: #E8E4DC;
+    font-family: 'Lora', serif;
+    font-size: 12px;
+    line-height: 1.4;
+    text-align: center;
+    padding: 0;
+}
+
+
+/* ==========================================
+   CARDS DE MÚSICA
+========================================== */
+
+#musica-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+    width: 100%;
+    align-items: stretch;
+}
+
+#musica-grid .musica-card {
+    min-width: 0;
+    padding: 10px;
+    text-align: center;
+
+    background: rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(217, 154, 85, 0.2);
+    border-radius: 10px;
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease;
+}
+
+#musica-grid .musica-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(217, 154, 85, 0.75);
+    background: rgba(0, 0, 0, 0.38);
+}
+
+/* IMAGEM DO GÊNERO */
+
+#musica-grid .musica-imagem {
+    position: relative;
+    width: 100%;
+    height: 210px;
+    overflow: hidden;
+    border-radius: 7px;
+    background: #181818;
+}
+
+#musica-grid .musica-imagem img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 7px;
+
+    transition:
+        transform 0.45s ease,
+        filter 0.45s ease;
+}
+
+#musica-grid .musica-card:hover .musica-imagem img {
+    transform: scale(1.05);
+    filter: brightness(1.08);
+}
+
+/* BOTÃO PLAY */
+
+#musica-grid .musica-play {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 2;
+
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #FFFFFF;
+    background: rgba(20, 20, 20, 0.78);
+
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 50%;
+
+    font-size: 14px;
+    cursor: pointer;
+
+    backdrop-filter: blur(5px);
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+#musica-grid .musica-play:hover {
+    background: #D99A55;
+    color: #1A1A1A;
+    transform: scale(1.1);
+}
+
+#musica-grid .musica-play.tocando {
+    background: #D99A55;
+    color: #1A1A1A;
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* TÍTULO DO GÊNERO */
+
+#musica-grid .musica-card h5 {
+    color: #E8E4DC;
+    font-family: 'Lora', serif;
+    font-size: 15px;
+    line-height: 1.4;
+    padding: 12px 3px 8px;
+    margin: 0;
+}
+
+/* ARTISTAS */
+
+#musica-grid .musica-card .lista-artistas {
+    color: rgba(232, 228, 220, 0.8);
+    font-family: 'Lora', serif;
+    font-size: 12px;
+    line-height: 1.9;
+    margin: 0;
+    padding: 0 3px 5px;
+}
+
+
+
+/* ==========================================
+   SEÇÃO GALERIA
+========================================== */
+
+#portfolio {
+    padding: 45px 8% 90px;
+}
+
+#portfolio h2 {
+    font-size: 34px;
+    color: #F0DFAE;
+    text-align: left;
+    margin-bottom: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.portfolio-descricao {
+    color: #D0C8BA;
+    font-size: 16px;
+    margin: 0;
+}
+
+
+/* ==========================================
+   FILTROS DA GALERIA
+========================================== */
+
+#portfolio .filtros-galeria {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 25px 0 30px;
+}
+
+#portfolio .filtro-btn {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    flex: initial;
+    min-width: 105px;
+    padding: 11px 20px;
+
+    background: rgba(0, 0, 0, 0.35);
+    color: #E8E4DC;
+
+    border: 1px solid rgba(217, 154, 85, 0.25);
+    border-radius: 7px;
+
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#portfolio .filtro-btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    opacity: 0.10;
+
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+#portfolio .filtro-btn:hover {
+    background: rgba(217, 154, 85, 0.12);
+    color: #F0DFAE;
+    border-color: #D99A55;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.25);
+}
+
+#portfolio .filtro-btn.ativo {
+    background: #D9A441;
+    color: #181818;
+    border: 1px solid #D9A441;
+    box-shadow: inset 0 0 0 1px rgba(24, 24, 24, 0.12);
+}
+
+#portfolio .filtro-btn.ativo:hover {
+    background: #E8B957;
+    color: #181818;
+}
+
+.filtro-contagem {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 20px;
+    height: 20px;
+    margin-left: 7px;
+    padding: 0 5px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.14);
+    color: inherit;
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 1;
+}
+
+#portfolio .filtro-btn.ativo .filtro-contagem {
+    background: rgba(24, 24, 24, 0.15);
+}
+
+
+/* ==========================================
+   GRADE DA GALERIA
+========================================== */
+
+#portfolio .galeria {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 25px;
+
+    background: rgba(0, 0, 0, 0.20);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    border: 1px solid rgba(217, 154, 85, 0.20);
+    border-radius: 20px;
+    padding: 30px;
+}
+
+
+/* ==========================================
+   CARDS DAS IMAGENS
+========================================== */
+
+#portfolio .desenho {
+    grid-column: span 2;
+    min-width: 0;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    padding: 15px;
+
+    background: rgba(15, 15, 15, 0.65);
+    border: 1px solid rgba(217, 154, 85, 0.20);
+    border-radius: 12px;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+    cursor: pointer;
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease,
+        background 0.35s ease;
+}
+
+#portfolio .desenho:hover {
+    transform: translateY(-6px);
+    border-color: rgba(217, 154, 85, 0.55);
+    background: rgba(35, 33, 30, 0.90);
+
+    box-shadow:
+        0 12px 25px rgba(0, 0, 0, 0.30),
+        0 2px 5px rgba(217, 154, 85, 0.08);
+}
+
+@media (min-width: 993px) {
+    #portfolio .desenho:nth-last-child(2) {
+        grid-column: 2 / span 2;
+    }
+
+    #portfolio .desenho:last-child {
+        grid-column: 4 / span 2;
+    }
+}
+
+#portfolio .desenho img {
+    display: block;
+    width: 100%;
+    height: 300px;
+    object-fit: contain;
+    object-position: center;
+    border-radius: 7px;
+    transition: transform 0.45s ease;
+}
+
+#portfolio .desenho:hover img {
+    transform: scale(1.035);
+}
+
+#portfolio .desenho p {
+    color: #E8E4DC;
+    font-size: 14px;
+    font-weight: 500;
+    margin: 15px 0 3px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(217, 154, 85, 0.25);
+    text-align: center;
+    line-height: 1.5;
+}
+
+#portfolio .desenho.aparecendo {
+    animation: aparecerDesenho 0.35s ease both;
+}
+
+@keyframes aparecerDesenho {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#portfolio .desenho.oculto {
+    display: none;
+}
+
+
+/* ==========================================
+   LIGHTBOX
+========================================== */
+
+#portfolio .lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+
+    background: rgba(8, 8, 8, 0.96);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    justify-content: center;
+    align-items: center;
+    padding: 35px;
+}
+
+#portfolio .lightbox-conteudo {
+    max-width: 900px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    animation: entradaLightbox 0.3s ease;
+}
+
+#portfolio .lightbox-conteudo img {
+    max-width: 100%;
+    max-height: 72vh;
+    object-fit: contain;
+    border: 1px solid rgba(217, 154, 85, 0.30);
+    border-radius: 8px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+}
+
+#portfolio .lightbox-conteudo h3 {
+    color: #F0DFAE;
+    font-size: 24px;
+    font-weight: 600;
+    margin-top: 22px;
+    margin-bottom: 0;
+}
+
+#portfolio .lightbox-conteudo p {
+    color: #D0C8BA;
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+#portfolio .lightbox-fechar {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    background: none;
+    border: none;
+    color: #D9A441;
+    font-size: 42px;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+#portfolio .lightbox-fechar:hover {
+    color: #F0DFAE;
+    transform: scale(1.15);
+}
+
+#portfolio .lightbox-anterior,
+#portfolio .lightbox-proximo {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #D9A441;
+    font-size: 32px;
+    cursor: pointer;
+    padding: 15px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+#portfolio .lightbox-anterior {
+    left: 25px;
+}
+
+#portfolio .lightbox-proximo {
+    right: 25px;
+}
+
+#portfolio .lightbox-anterior:hover {
+    color: #F0DFAE;
+    transform: translate(-4px, -50%);
+}
+
+#portfolio .lightbox-proximo:hover {
+    color: #F0DFAE;
+    transform: translate(4px, -50%);
+}
+
+@keyframes entradaLightbox {
+    from {
+        opacity: 0;
+        transform: scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+/* ==========================================
+   SEÇÃO CONTATO
+========================================== */
+
+#contato {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding: 90px 8%;
+    text-align: center;
+
+    background: linear-gradient(
+        115deg,
+        #151515,
+        #24211E,
+        #181818
+    );
+
+    color: #E8E4DC;
+}
+
+#contato::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("../imagens/tucano-marca-dagua.png");
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: contain;
+    opacity: 0.08;
+    z-index: 0;
+    pointer-events: none;
+}
+
+#contato::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    opacity: 0.015;
+    pointer-events: none;
+
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+#contato > * {
+    position: relative;
+    z-index: 1;
+}
+
+#contato h2 {
+    display: inline-block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+    color: #F5F3EF;
+    margin-bottom: 25px;
+}
+
+#contato h2::after {
+    content: "";
+    display: block;
+    width: 65px;
+    height: 2px;
+    background-color: #786B59;
+    margin: 12px auto 0;
+}
+
+#contato .contato-descricao {
+    max-width: 550px;
+    margin: 0 auto 45px;
+    color: #D4D1CB;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+#contato .contato-links {
+    max-width: 950px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+}
+
+#contato .contato-links .contato-card {
+    display: block;
+    min-width: 0;
+    text-decoration: none;
+    color: #E8E4DC;
+
+    background: rgba(35, 33, 30, 0.88);
+    border: 1px solid rgba(166, 157, 141, 0.30);
+    border-radius: 12px;
+    padding: 30px 15px;
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.04);
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background-color 0.3s ease,
+        border-color 0.3s ease;
+}
+
+#contato .contato-links .contato-card:hover {
+    transform: translateY(-7px);
+    background: rgba(55, 51, 45, 0.95);
+    border-color: rgba(200, 189, 169, 0.55);
+
+    box-shadow:
+        0 12px 25px rgba(0, 0, 0, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.07);
+}
+
+#contato .contato-links .contato-card:focus-visible {
+    outline: 2px solid #C8BDA9;
+    outline-offset: 4px;
+}
+
+#contato .contato-card .contato-icone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 18px;
+    border-radius: 50%;
+    background: #181715;
+    color: #D4D1CB;
+    border: 1px solid rgba(166, 157, 141, 0.35);
+    font-size: 23px;
+    font-weight: bold;
+
+    transition:
+        transform 0.3s ease,
+        background-color 0.3s ease,
+        border-color 0.3s ease,
+        color 0.3s ease;
+}
+
+#contato .contato-card:hover .contato-icone {
+    transform: scale(1.1);
+    background: #786B59;
+    color: #F5F3EF;
+    border-color: #A69D8D;
+}
+
+#contato .contato-card h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: #F5F3EF;
+}
+
+#contato .contato-card p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    color: #BDB7AC;
+    margin: 0;
+    line-height: 1.6;
+}
+
+
+/* ==========================================
+   RODAPÉ
+========================================== */
+
+footer {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding: 25px 15px;
+    text-align: center;
+
+    background: linear-gradient(
+        115deg,
+        #151515,
+        #24211E,
+        #181818
+    );
+
+    color: #E8E4DC;
+    border-top: 1px solid rgba(212, 209, 203, 0.25);
+}
+
+footer::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    opacity: 0.06;
+    pointer-events: none;
+
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+footer p {
+    margin: 0 0 7px;
+    font-size: 13px;
+    line-height: 1.6;
+    color: #D4D1CB;
+    font-family: 'Montserrat', sans-serif;
+}
+
+footer span {
+    font-size: 11px;
+    color: #A9A39A;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+/* ==========================================
+   RESPONSIVIDADE - TABLETS
+========================================== */
+
+@media (max-width: 992px) {
+
+    header.navbar {
+        padding: 20px 5%;
+    }
+
+    header.navbar .navbar-nav {
+        gap: 15px;
+        margin-left: auto;
+        margin-right: 0;
+    }
+
+    header.navbar .navbar-nav .nav-link {
+        font-size: 15px;
+    }
+
+    header.navbar .navbar-nav .nav-item:not(:last-child)::after {
+        right: -8px;
+        height: 15px;
+    }
+
+    .assinatura {
+        width: 150px;
+        transform: scale(1.7);
+    }
+
+    .desenho-carrossel {
+        flex-basis: 220px;
+    }
+
+    .desenho-carrossel.destaque {
+        flex-basis: 250px;
+    }
+
+    .desenho-carrossel img {
+        height: 240px;
+    }
+
+    .sobre-container {
+        gap: 30px;
+        padding: 30px;
+    }
+
+    .sobre-imagem {
+        width: 280px;
+        height: 350px;
+    }
+
+    #portfolio .galeria {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        padding: 25px;
+        gap: 20px;
+    }
+
+    #portfolio .desenho {
+        grid-column: span 1;
+    }
+
+    #portfolio .desenho img {
+        height: 270px;
+    }
+
+    .ilustracao-esquerda {
+        left: 0;
+        width: 220px;
+    }
+
+    .ilustracoes-direita {
+        right: 0;
+        width: 190px;
+        height: 330px;
+    }
+
+    .ilustracoes-direita img:first-child {
+        width: 165px;
+    }
+
+    .ilustracoes-direita img:last-child {
+        top: 175px;
+        right: 25px;
+        width: 140px;
+    }
+
+    #contato .contato-links {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    /* MÚSICA */
+
+    #musica-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+    }
+
+    #musica-grid .musica-imagem {
+        height: 190px;
+    }
+}
+
+
+/* ==========================================
+   RESPONSIVIDADE - CELULARES
+========================================== */
+
+@media (max-width: 768px) {
+
+    header.navbar {
+        padding: 12px 18px 14px;
+    }
+
+    header.navbar .container-fluid {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+        column-gap: 8px;
+    }
+
+    header.navbar .player-musica {
+        display: none !important;
+    }
+
+    header.navbar .navbar-brand {
+        grid-column: 1 / 3;
+        grid-row: 1;
+        justify-self: center;
+        margin: 8px 0 12px;
+        padding: 0;
+        transform: translateX(-12px);
+    }
+
+    header.navbar .assinatura {
+        display: block;
+        width: 150px;
+        max-width: 100%;
+        height: auto;
+    }
+
+    header.navbar .navbar-toggler {
+        grid-column: 3;
+        grid-row: 1;
+        justify-self: end;
+        align-self: center;
+        margin: 8px 0 0;
+    }
+
+    header.navbar .navbar-collapse {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        padding-top: 8px;
+        margin-top: 4px;
+        border-top: 1px solid rgba(232, 228, 220, 0.15);
+    }
+
+    header.navbar .navbar-nav {
+        align-items: center;
+        gap: 8px;
+        padding: 4px 0;
+        margin: 0;
+    }
+
+    header.navbar .navbar-nav .nav-item::after {
+        display: none;
+    }
+
+    header.navbar .nav-link {
+        padding: 5px 10px;
+        text-align: center;
+    }
+
+    header.navbar .navbar-nav .nav-link::after {
+        bottom: 3px;
+    }
+
+    #inicio {
+        position: relative;
+        isolation: isolate;
+        overflow: hidden;
+        min-height: auto;
+        padding: 40px 20px;
+    }
+
+    .frase-inicio h1 {
+        font-size: 23px;
+    }
+
+    #inicio .frase-inicio p {
+        font-size: 16px;
+    }
+
+    #inicio > p {
+        font-size: 15px;
+    }
+
+    .hero-buttons {
+        gap: 12px;
+    }
+
+    .hero-buttons a {
+        padding: 12px 18px;
+        font-size: 13px;
+    }
+
+    #inicio .ilustracao-esquerda {
+        position: absolute;
+        z-index: 0;
+        width: 150px;
+        max-width: none;
+        left: -25px;
+        top: 48%;
+        transform: translateY(-50%);
+        opacity: 0.20;
+        pointer-events: none;
+    }
+
+    #inicio .ilustracoes-direita {
+        position: absolute;
+        z-index: 0;
+        width: auto;
+        right: -20px;
+        top: 48%;
+        transform: translateY(-50%);
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center;
+        gap: 0 !important;
+        opacity: 0.20;
+        pointer-events: none;
+    }
+
+    #inicio .ilustracoes-direita img {
+        display: block;
+        position: static !important;
+        width: 125px;
+        max-width: none;
+        height: auto;
+    }
+
+    #inicio .ilustracoes-direita img + img {
+        margin-top: 10px !important;
+    }
+
+    #inicio > *:not(.ilustracao-esquerda):not(.ilustracoes-direita) {
+        position: relative;
+        z-index: 1;
+    }
+
+    .carrossel-inicio {
+        margin-top: 35px;
+        margin-bottom: 35px;
+    }
+
+    .carrossel-lista {
+        gap: 0;
+    }
+
+    .desenho-carrossel {
+        flex: 0 1 30%;
+        transform: scale(0.9);
+    }
+
+    .desenho-carrossel.destaque {
+        flex: 0 1 40%;
+        transform: scale(1.05);
+    }
+
+    .desenho-carrossel img {
+        height: 180px;
+    }
+
+    .desenho-carrossel:not(.destaque):hover {
+        transform: scale(0.95);
+    }
+
+    .desenho-carrossel.destaque:hover {
+        transform: scale(1.08);
+    }
+
+    #sobre {
+        padding: 30px 5% 60px;
+    }
+
+    #sobre h2 {
+        font-size: 28px;
+        margin-bottom: 25px;
+    }
+
+    .sobre-container {
+        flex-direction: column;
+        gap: 25px;
+        padding: 25px;
+    }
+
+    .sobre-apresentacao {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 25px;
+    }
+
+    .sobre-imagem {
+        width: 100%;
+        max-width: 300px;
+        height: 320px;
+    }
+
+    #sobre .sobre-texto h3 {
+        white-space: nowrap;
+        font-size: clamp(17px, 4.2vw, 23px);
+    }
+
+    .sobre-texto p {
+        font-size: 15px;
+    }
+
+    .interesses-container {
+        margin-top: 0;
+        padding-top: 25px;
+    }
+
+    .interesses-container h3 {
+        font-size: 24px;
+    }
+
+    .interesses-descricao {
+        font-size: 14px;
+    }
+
+    .interesses-botoes {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .interesse-btn {
+        min-width: 0;
+        width: 100%;
+        padding: 11px 8px;
+        font-size: 12px;
+    }
+
+    .interesse-painel h4 {
+        font-size: 20px;
+    }
+
+    .interesse-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 13px;
+    }
+
+    .interesse-card img {
+        height: 170px;
+    }
+
+    /* MÚSICA */
+
+    #musica-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    #musica-grid .musica-card {
+        padding: 8px;
+    }
+
+    #musica-grid .musica-imagem {
+        height: 170px;
+    }
+
+    #musica-grid .musica-card h5 {
+        font-size: 14px;
+    }
+
+    #musica-grid .musica-card .lista-artistas {
+        font-size: 11px;
+        line-height: 1.8;
+    }
+
+    #portfolio {
+        padding: 35px 5% 60px;
+    }
+
+    #portfolio h2 {
+        font-size: 28px;
+    }
+
+    #portfolio .filtros-galeria {
+        gap: 8px;
+    }
+
+    #portfolio .filtro-btn {
+        min-width: 90px;
+        padding: 10px 14px;
+        font-size: 12px;
+    }
+
+    #portfolio .galeria {
+        gap: 15px;
+        padding: 18px;
+    }
+
+    #portfolio .desenho {
+        padding: 10px;
+    }
+
+    #portfolio .desenho img {
+        height: 220px;
+    }
+
+    #portfolio .desenho p {
+        font-size: 13px;
+    }
+
+    #contato {
+        padding: 70px 5%;
+    }
+
+    #contato h2 {
+        font-size: 28px;
+    }
+
+    #contato .contato-descricao {
+        font-size: 14px;
+    }
+
+    #contato .contato-links {
+        gap: 15px;
+    }
+
+    #portfolio .lightbox {
+        padding: 20px;
+    }
+
+    #portfolio .lightbox-conteudo img {
+        max-height: 65vh;
+    }
+
+    #portfolio .lightbox-conteudo h3 {
+        font-size: 20px;
+    }
+
+    #portfolio .lightbox-anterior,
+    #portfolio .lightbox-proximo {
+        font-size: 25px;
+        padding: 8px;
+    }
+
+    #portfolio .lightbox-anterior {
+        left: 5px;
+    }
+
+    #portfolio .lightbox-proximo {
+        right: 5px;
+    }
+
+    #portfolio .lightbox-fechar {
+        top: 10px;
+        right: 15px;
+        font-size: 35px;
+    }
+
+    footer {
+        padding: 20px 5%;
+    }
+
+    #games-grid {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 8px;
+    }
+
+    #games-grid .interesse-card {
+        padding: 5px;
+    }
+
+    #games-grid .interesse-card h5 {
+        font-size: 10px;
+    }
+}
+
+
+/* ==========================================
+   RESPONSIVIDADE - CELULARES PEQUENOS
+========================================== */
+
+@media (max-width: 480px) {
+
+    header.navbar {
+        padding: 10px 14px 12px;
+    }
+
+    header.navbar .assinatura {
+        width: 165px;
+    }
+
+    header.navbar .navbar-nav {
+        gap: 6px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .hero-buttons a {
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .desenho-carrossel img {
+        height: 140px;
+    }
+
+    .frase-inicio h1 {
+        font-size: 20px;
+    }
+
+    .sobre-container {
+        padding: 20px;
+        gap: 25px;
+    }
+
+    .sobre-apresentacao {
+        gap: 20px;
+    }
+
+    .sobre-imagem {
+        height: 280px;
+    }
+
+    .interesses-container {
+        padding-top: 20px;
+    }
+
+    .interesses-container h3 {
+        font-size: 22px;
+    }
+
+    .interesses-botoes {
+        gap: 8px;
+    }
+
+    .interesse-btn {
+        padding: 10px 5px;
+        font-size: 11px;
+    }
+
+    .interesse-painel h4 {
+        font-size: 18px;
+    }
+
+    .interesse-grid {
+        gap: 10px;
+    }
+
+    .interesse-card img {
+        height: 145px;
+    }
+
+    .interesse-card h5 {
+        font-size: 13px;
+        padding: 11px 7px 5px;
+    }
+
+    .interesse-card p {
+        font-size: 11px;
+        padding: 0 7px 12px;
+    }
+
+    /* MÚSICA */
+
+    #musica-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    #musica-grid .musica-card {
+        padding: 7px;
+    }
+
+    #musica-grid .musica-imagem {
+        height: 145px;
+    }
+
+    #musica-grid .musica-play {
+        width: 33px;
+        height: 33px;
+        top: 7px;
+        right: 7px;
+        font-size: 12px;
+    }
+
+    #musica-grid .musica-card h5 {
+        font-size: 13px;
+        padding: 10px 2px 6px;
+    }
+
+    #musica-grid .musica-card .lista-artistas {
+        font-size: 10px;
+        line-height: 1.7;
+    }
+
+    #portfolio .galeria {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 15px;
+    }
+
+    #portfolio .desenho {
+        grid-column: 1;
+    }
+
+    #portfolio .desenho img {
+        height: 320px;
+    }
+
+    #portfolio .filtros-galeria {
+        justify-content: center;
+    }
+
+    #portfolio .filtro-btn {
+        flex: 1;
+        min-width: 0;
+    }
+
+    #contato .contato-links {
+        grid-template-columns: 1fr;
+    }
+
+    .ilustracao-esquerda {
+        width: 80px;
+        opacity: 0.13;
+    }
+
+    .ilustracoes-direita {
+        width: 80px;
+        height: 160px;
+        opacity: 0.13;
+    }
+
+    .ilustracoes-direita img:first-child {
+        width: 75px;
+    }
+
+    .ilustracoes-direita img:last-child {
+        top: 85px;
+        right: 0;
+        width: 65px;
+    }
+
+    #games-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    #games-grid .interesse-card img {
+        max-width: 130px;
+    }
+
+    #games-grid .interesse-card h5 {
+        font-size: 11px;
+    }
+
+    .filtros-galeria .filtro-btn {
+        min-height: 52px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        line-height: 1.1;
+    }
+}
+
+
+/* ==========================================
+   TEXTO DOS FILTROS
+========================================== */
+
+.texto-mobile {
+    display: none;
+}
+
+@media (max-width: 768px) {
+
+    .texto-desktop {
+        display: none;
+    }
+
+    .texto-mobile {
+        display: inline;
+    }
+}
+
+/* Nomes dos gêneros musicais */
+#musica-grid .musica-card h5 {
+    color: #D9A441;
+}
+
+/* ==========================================
+   CARDS DE FILMES - MESMO PADRÃO DOS GAMES
+========================================== */
+
+#filmes-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 16px;
+    width: 100%;
+    align-items: start;
+}
+
+#filmes-grid .interesse-card {
+    min-width: 0;
+    padding: 8px;
+    text-align: center;
+
+    background: rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(217, 154, 85, 0.2);
+    border-radius: 10px;
+
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+#filmes-grid .interesse-card:hover {
+    transform: translateY(-5px);
+    border-color: #D99A55;
+}
+
+#filmes-grid .interesse-card img {
+    display: block;
+    width: 100%;
+    max-width: 150px;
+    aspect-ratio: 2 / 3;
+    height: auto;
+    object-fit: cover;
+    margin: 0 auto;
+    border-radius: 7px;
+}
+
+#filmes-grid .interesse-card h5 {
+    margin-top: 10px;
+    color: #E8E4DC;
+    font-family: 'Lora', serif;
+    font-size: 12px;
+    line-height: 1.4;
+    text-align: center;
+    padding: 0;
+}
+
+/* TABLETS E CELULARES */
+
+@media (max-width: 768px) {
+
+    #filmes-grid {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 8px;
+    }
+
+    #filmes-grid .interesse-card {
+        padding: 5px;
+    }
+
+    #filmes-grid .interesse-card h5 {
+        font-size: 10px;
+    }
+}
+
+/* CELULARES PEQUENOS */
+
+@media (max-width: 480px) {
+
+    #filmes-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    #filmes-grid .interesse-card img {
+        max-width: 130px;
+    }
+
+    #filmes-grid .interesse-card h5 {
+        font-size: 11px;
+    }
+}
+
+
+/* ==========================================
+   CARDS DE SÉRIES - MESMO PADRÃO DOS GAMES E FILMES
+========================================== */
+
+#series-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 16px;
+    width: 100%;
+    align-items: start;
+}
+
+#series-grid .interesse-card {
+    min-width: 0;
+    padding: 8px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(217, 154, 85, 0.2);
+    border-radius: 10px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+#series-grid .interesse-card:hover {
+    transform: translateY(-5px);
+    border-color: #D99A55;
+}
+
+#series-grid .interesse-card img {
+    display: block;
+    width: 100%;
+    max-width: 150px;
+    aspect-ratio: 2 / 3;
+    height: auto;
+    object-fit: cover;
+    margin: 0 auto;
+    border-radius: 7px;
+}
+
+#series-grid .interesse-card h5 {
+    margin-top: 10px;
+    color: #E8E4DC;
+    font-family: 'Lora', serif;
+    font-size: 12px;
+    line-height: 1.4;
+    text-align: center;
+    padding: 0;
+}
+
+@media (max-width: 768px) {
+    #series-grid {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 8px;
+    }
+
+    #series-grid .interesse-card {
+        padding: 5px;
+    }
+
+    #series-grid .interesse-card h5 {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    #series-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    #series-grid .interesse-card img {
+        max-width: 130px;
+    }
+
+    #series-grid .interesse-card h5 {
+        font-size: 11px;
+    }
+}
+
+
+
+/* ==========================================
+   ABA ESPORTES
+========================================== */
+
+.esportes-descricao {
+    color: #E8E4DC;
+    font-family: 'Lora', serif;
+    font-size: 14px;
+    line-height: 1.8;
+    text-align: center;
+    max-width: 750px;
+    margin: 0 auto 28px;
+}
+
+
+/* ==========================================
+   JOGADORES FAVORITOS
+========================================== */
+
+#esportes-jogadores-grid {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 16px;
+    width: 100%;
+    align-items: start;
+}
+
+#esportes-jogadores-grid .interesse-card {
+    min-width: 0;
+    padding: 8px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(217, 154, 85, 0.2);
+    border-radius: 10px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+#esportes-jogadores-grid .interesse-card:hover {
+    transform: translateY(-5px);
+    border-color: #D99A55;
+}
+
+#esportes-jogadores-grid .interesse-card img {
+    display: block;
+    width: 100%;
+    max-width: 150px;
+    aspect-ratio: 2 / 3;
+    height: auto;
+    object-fit: cover;
+    margin: 0 auto;
+    border-radius: 7px;
+}
+
+#esportes-jogadores-grid .interesse-card h5 {
+    margin-top: 10px;
+    color: #E8E4DC;
+    font-family: 'Lora', serif;
+    font-size: 12px;
+    line-height: 1.4;
+    text-align: center;
+    padding: 0;
+}
+
+
+
+/* ==========================================
+   DESTAQUE DO FLAMENGO
+========================================== */
+
+.flamengo-destaque {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 25px auto 35px;
+    padding: 25px 20px;
+    max-width: 600px;
+    background: rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(217, 154, 85, 0.2);
+    border-radius: 12px;
+}
+
+.flamengo-imagens {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    margin: 15px 0;
+}
+
+.flamengo-imagens img {
+    width: 145px;
+    height: 145px;
+    object-fit: contain;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.flamengo-imagens img:hover {
+    transform: scale(1.06);
+}
+
+.flamengo-imagens .flamengo-foto {
+    object-fit: cover;
+}
+
+.flamengo-destaque h5 {
+    color: #E8E4DC;
+    font-family: 'Lora', serif;
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+.flamengo-destaque p {
+    color: #D0C8BA;
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+
+/* RESPONSIVIDADE DO FLAMENGO */
+
+@media (max-width: 480px) {
+
+    .flamengo-destaque {
+        padding: 20px 15px;
+    }
+
+    .flamengo-imagens {
+        gap: 12px;
+    }
+
+    .flamengo-imagens img {
+        width: 115px;
+        height: 115px;
+    }
+}
+
+
+
+/* ==========================================
+   COLEÇÃO DE CAMISAS
+========================================== */
+
+.esportes-colecao {
+    margin-top: 38px;
+    text-align: center;
+}
+
+.esportes-colecao-foto {
+    width: 100%;
+    max-width: 750px;
+    min-height: 220px;
+    margin: 18px auto 12px;
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(217, 154, 85, 0.2);
+    border-radius: 10px;
+}
+
+
+/* ==========================================
+   ESPORTES - COLEÇÃO DE CAMISAS
+========================================== */
+
+.esportes-colecao-foto img {
+    display: block;
+    width: 100%;
+    max-height: 450px;
+    object-fit: contain;
+    margin: 0 auto;
+    border-radius: 7px;
+}
+
+.esportes-colecao p {
+    color: #E8E4DC;
+    font-family: 'Lora', serif;
+    font-size: 13px;
+    margin-top: 12px;
+}
+
+
+/* ==========================================
+   RESPONSIVIDADE DOS ESPORTES
+========================================== */
+
+@media (max-width: 768px) {
+
+    #esportes-jogadores-grid {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        gap: 8px;
+    }
+
+    #esportes-jogadores-grid .interesse-card {
+        padding: 5px;
+    }
+
+    #esportes-jogadores-grid .interesse-card h5 {
+        font-size: 10px;
+    }
+
+    .esportes-colecao-foto {
+        min-height: 180px;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    #esportes-jogadores-grid {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        gap: 5px;
+    }
+
+    #esportes-jogadores-grid .interesse-card {
+        padding: 3px;
+    }
+
+    #esportes-jogadores-grid .interesse-card img {
+        max-width: 130px;
+    }
+
+    #esportes-jogadores-grid .interesse-card h5 {
+        font-size: 9px;
+        line-height: 1.2;
+    }
+
+    .esportes-descricao {
+        font-size: 13px;
+    }
+
+    .esportes-colecao-foto {
+        min-height: 150px;
+        padding: 8px;
+    }
+
+    /* RESPONSIVIDADE DO FLAMENGO */
+
+    .flamengo-destaque {
+        padding: 20px 15px;
+    }
+
+    .flamengo-imagens {
+        gap: 12px;
+    }
+
+    .flamengo-imagens img {
+        width: 115px;
+        height: 115px;
+    }
+}
+
+
+/* ==========================================
+   ABA HOBBIES
+========================================== */
+
+.hobbies-descricao {
+    color: #E8E4DC;
+    font-family: 'Lora', serif;
+    font-size: 14px;
+    line-height: 1.8;
+    text-align: center;
+    max-width: 750px;
+    margin: 0 auto 28px;
+}
+
+.hobbies-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    width: 100%;
+    align-items: stretch;
+}
+
+.hobby-card {
+    min-width: 0;
+    overflow: hidden;
+    padding: 10px;
+    text-align: center;
+
+    background: rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(217, 154, 85, 0.2);
+    border-radius: 12px;
+
+    transition: transform 0.3s ease,
+                border-color 0.3s ease,
+                background 0.3s ease;
+}
+
+.hobby-card:hover {
+    transform: translateY(-5px);
+    border-color: #D99A55;
+    background: rgba(35, 33, 30, 0.85);
+}
+
+.hobby-card img {
+    display: block;
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.4s ease;
+}
+
+.hobby-card:hover img {
+    transform: scale(1.03);
+}
+
+.hobby-card h5 {
+    margin: 14px 0 8px;
+    color: #F0DFAE;
+    font-family: 'Lora', serif;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.hobby-card p {
+    color: #D0C8BA;
+    font-family: 'Lora', serif;
+    font-size: 13px;
+    line-height: 1.7;
+    margin: 0;
+    padding: 0 5px 8px;
+}
+
+
+/* ==========================================
+   RESPONSIVIDADE DOS HOBBIES
+========================================== */
+
+@media (max-width: 768px) {
+
+    .hobbies-grid {
+        gap: 12px;
+    }
+
+    .hobby-card {
+        padding: 7px;
+    }
+
+    .hobby-card img {
+        height: 150px;
+    }
+
+    .hobby-card h5 {
+        font-size: 13px;
+    }
+
+    .hobby-card p {
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .hobbies-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .hobby-card img {
+        height: 190px;
+    }
+
+    .hobby-card h5 {
+        font-size: 15px;
+    }
+
+    .hobby-card p {
+        font-size: 13px;
+    }
+
+    .hobbies-descricao {
+        font-size: 13px;
+    }
+}
+
+/* ==========================================
+   AJUSTE IPAD MINI — TELA INICIAL
+========================================== */
+
+@media (min-width: 600px) and (max-width: 900px) {
+
+    /* TEXTOS CENTRALIZADOS */
+
+    .frase-inicio {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        text-align: center;
+        margin: 20px auto;
+        padding: 0 25px;
+    }
+
+    .frase-inicio h1 {
+        max-width: 650px;
+        font-size: 30px;
+        text-align: center;
+    }
+
+    .frase-inicio p {
+        text-align: center;
+    }
+
+    /* CARROSSEL DE DESENHOS */
+
+    .carrossel-lista {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 280px;
+        margin: 25px auto;
+    }
+
+    .desenho-carrossel {
+        position: absolute;
+        width: 180px;
+        height: 230px;
+        object-fit: cover;
+        transition: all 0.4s ease;
+    }
+
+    .desenho-carrossel.destaque {
+        z-index: 3;
+        left: 50%;
+        transform: translateX(-50%) scale(1.05);
+    }
+
+    .desenho-carrossel.lado-esquerdo {
+        z-index: 2;
+        left: calc(50% - 155px);
+        transform: scale(0.85);
+    }
+
+    .desenho-carrossel.lado-direito {
+        z-index: 2;
+        right: calc(50% - 155px);
+        transform: scale(0.85);
+    }
+
+    /* BOTÕES DA TELA INICIAL */
+
+    #inicio a,
+    #inicio button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 80%;
+        max-width: 420px;
+        margin: 12px auto;
+        text-align: center;
+    }
+}
+
+
+/* ==========================================
+   IPAD MINI — COMPOSIÇÃO DA PÁGINA INICIAL
+========================================== */
+
+@media (min-width: 600px) and (max-width: 1024px) and (pointer: coarse) {
+
+    #inicio {
+        min-height: auto;
+        padding: 40px 25px 35px;
+    }
+
+    /* TEXTOS */
+
+    #inicio > span {
+        margin-bottom: 22px;
+        font-size: 14px;
+    }
+
+    .frase-inicio {
+        width: 100%;
+        max-width: 650px;
+    }
+
+    .frase-inicio h1 {
+        font-size: 30px;
+        line-height: 1.3;
+    }
+
+    #inicio .frase-inicio p {
+        font-size: 18px;
+    }
+
+    #inicio > p {
+        max-width: 550px;
+        font-size: 17px;
+        line-height: 1.7;
+        margin: 5px auto 25px;
+    }
+
+    /* DESENHOS DECORATIVOS DE FUNDO */
+
+    #inicio .ilustracao-esquerda {
+        width: 270px;
+        left: -20px;
+        top: 235px;
+        opacity: 0.20;
+    }
+
+    #inicio .ilustracoes-direita {
+        width: 230px;
+        height: 340px;
+        right: -10px;
+        top: 210px;
+        opacity: 0.20;
+    }
+
+    #inicio .ilustracoes-direita img:first-child {
+        width: 220px;
+        top: 0;
+        right: 0;
+    }
+
+    #inicio .ilustracoes-direita img:last-child {
+        width: 175px;
+        top: 175px;
+        right: 15px;
+    }
+
+    /* BOTÕES */
+
+    #inicio .hero-buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+        width: 100%;
+    }
+
+    #inicio .hero-buttons a {
+        width: 100%;
+        max-width: 435px;
+        padding: 15px 20px;
+        margin: 0;
+        font-size: 14px;
+    }
+}
+
+
+/* ==========================================
+   IPAD MINI — FOTOS LADO A LADO
+========================================== */
+
+@media (min-width: 600px) and (max-width: 1024px) {
+
+    #inicio .carrossel-inicio {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin: 30px auto 35px;
+    }
+
+    #inicio .carrossel-lista {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        width: 100%;
+        max-width: 650px;
+        height: auto;
+        margin: 0 auto;
+    }
+
+    #inicio .desenho-carrossel,
+    #inicio .desenho-carrossel.destaque {
+        position: relative;
+        flex: 1 1 0;
+        width: auto;
+        height: 220px;
+        min-width: 0;
+        margin: 0;
+        opacity: 1;
+        transform: none;
+        z-index: 1;
+        cursor: default;
+    }
+
+    #inicio .desenho-carrossel img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center;
+    }
+}
+
+
+/* ==========================================
+   IPAD MINI — TRÊS FOTOS ESTÁTICAS
+========================================== */
+
+@media (min-width: 600px) and (max-width: 1024px) and (pointer: coarse) {
+
+    #inicio .carrossel-inicio {
+        display: block;
+        width: 100%;
+        margin: 30px auto;
+    }
+
+    #inicio .carrossel-lista {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        width: 100%;
+        height: auto;
+    }
+
+    #inicio .desenho-carrossel,
+    #inicio .desenho-carrossel.destaque {
+        position: static;
+        flex: 1 1 0;
+        width: 0;
+        min-width: 0;
+        height: 190px;
+        margin: 0;
+        padding: 0;
+        opacity: 1;
+        transform: none;
+        z-index: auto;
+        cursor: default;
+    }
+
+    #inicio .desenho-carrossel + .desenho-carrossel {
+        margin-left: 0;
+    }
+
+    #inicio .desenho-carrossel img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    #inicio .desenho-carrossel:hover,
+    #inicio .desenho-carrossel.destaque:hover {
+        transform: none;
+    }
+}
+
+
